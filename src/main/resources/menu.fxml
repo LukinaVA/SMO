@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="586.0" style="-fx-background-color: #444F5A;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <Button fx:id="autoModeBtn" layoutX="98.0" layoutY="337.0" mnemonicParsing="false" onAction="#startAutoMode" style="-fx-background-color: #3E4149;" text="Автоматический режим" textFill="#ff9999">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Button fx:id="stepModeBtn" layoutX="325.0" layoutY="337.0" mnemonicParsing="false" onAction="#startStepMode" style="-fx-background-color: #3E4149;" text="Пошаговый режим" textFill="#ff9999">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Label layoutX="103.0" layoutY="40.0" text="Кол-во источников" textFill="#ff9999">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="103.0" layoutY="76.0" text="Интенсивность источников" textFill="#ff9999">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="101.0" layoutY="115.0" text="Кол-во приборов" textFill="#ff9999">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="101.0" layoutY="155.0" text="Параметр a" textFill="#ff9999">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="100.0" layoutY="193.0" text="Параметр b" textFill="#ff9999">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="100.0" layoutY="231.0" text="Размер буфера" textFill="#ff9999">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <Label layoutX="103.0" layoutY="270.0" text="Кол-во заявок" textFill="#ff9999">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <TextField fx:id="sNum" alignment="TOP_LEFT" layoutX="327.0" layoutY="38.0" style="-fx-background-color: #FFC8C8;" />
+      <TextField fx:id="lambda" alignment="TOP_LEFT" layoutX="327.0" layoutY="74.0" style="-fx-background-color: #FFC8C8;" />
+      <TextField fx:id="dNum" alignment="TOP_LEFT" layoutX="328.0" layoutY="113.0" style="-fx-background-color: #FFC8C8;" />
+      <TextField fx:id="paramA" alignment="TOP_LEFT" layoutX="327.0" layoutY="153.0" style="-fx-background-color: #FFC8C8;" />
+      <TextField fx:id="paramB" alignment="TOP_LEFT" layoutX="327.0" layoutY="191.0" style="-fx-background-color: #FFC8C8;" />
+      <TextField fx:id="bSize" alignment="TOP_LEFT" layoutX="328.0" layoutY="229.0" style="-fx-background-color: #FFC8C8;" />
+      <TextField fx:id="rNum" alignment="TOP_LEFT" layoutX="328.0" layoutY="268.0" style="-fx-background-color: #FFC8C8;" />
+   </children>
+</AnchorPane>
