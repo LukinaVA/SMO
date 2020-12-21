@@ -31,6 +31,8 @@ public class App extends Application {
     private List<List<BufferResult>> bufferStates;
     private List<List<DeviceResult>> devicesStates;
 
+    private Config config;
+
     public static void main(String[] args) {
         launch();
     }
@@ -40,27 +42,29 @@ public class App extends Application {
         this.primaryStage = stage;
         openMenu();
         primaryStage.show();
+        config = null;
     }
 
-    public void init(int sourceNum, double flowIntensity, int deviceNum, double a, double b, int bufferSize, int rNum) {
-        ArrayList<Source> sources = new ArrayList<>(sourceNum);
-        for (int i = 0; i < sourceNum; ++i) {
-            sources.add(new Source(i, flowIntensity));
+    public void init(Config config) {
+        this.config = config;
+        ArrayList<Source> sources = new ArrayList<>(config.getSourceNum());
+        for (int i = 0; i < config.getSourceNum(); ++i) {
+            sources.add(new Source(i, config.getFlowIntensity()));
         }
 
-        ArrayList<Device> devices = new ArrayList<>(deviceNum);
-        for (int i = 0; i < deviceNum; ++i) {
-            devices.add(new Device(i, a, b));
+        ArrayList<Device> devices = new ArrayList<>(config.getDeviceNum());
+        for (int i = 0; i < config.getDeviceNum(); ++i) {
+            devices.add(new Device(i, config.getA(), config.getB()));
         }
 
-        buffer = new Buffer(bufferSize, sourceNum);
+        buffer = new Buffer(config.getBufferSize(), config.getSourceNum());
 
-        selectionManager = new SelectionManager(buffer, devices, sourceNum);
+        selectionManager = new SelectionManager(buffer, devices, config.getSourceNum());
         productionManager = new ProductionManager(buffer, sources, selectionManager);
 
         productionManager.initSources();
         currentRequestsNum = 0;
-        requestsNum = rNum;
+        requestsNum = config.getRequestsNum();
         statistics = new Statistics(productionManager, selectionManager, buffer);
 
         eventCalendar = new ArrayList<>();
@@ -117,6 +121,7 @@ public class App extends Application {
         MenuController controller = loader.getController();
         this.menuController = controller;
         controller.setApp(this);
+        menuController.setConfig(config);
     }
 
     public void openAutoMode() {
